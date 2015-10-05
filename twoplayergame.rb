@@ -1,24 +1,16 @@
-require 'pry'
+
 #instance variabels for players health, set equal to 3
 @player_one_health = 3
 @player_two_health = 3
 
 
 #builds the math question that the players answer
-def generate_question()
+def generate_question
   number_one = rand(1...20)
   number_two = rand(1...20)
   @answer = number_one + number_two
   p "#{number_one} plus #{number_two}?"
 end
-
-# generate_question()
-
-#checks for winnning player
-def winning_player()
-
-end
-
 
 #asks player to put answer in for question
 def promtp_player_for_answer
@@ -28,24 +20,17 @@ def promtp_player_for_answer
 end
 
 #takes the player answer and compares it to the answer in the question
-def verify_answer()
-  if promtp_player_for_answer == @answer
-    return true
-  else 
-    false
-  end
+def verify_answer?
+  promtp_player_for_answer == @answer
 end
-
-# generate_question()
-# verify_answer()
 
 #the loop that plays the game
 while @player_one_health > 0 && @player_two_health > 0 do
-  
-  generate_question()
+    
+  generate_question
   p ""
   p "PLayer One"
-  if verify_answer()
+  if verify_answer
     p "Good Work!"
   else
     @player_one_health -= 1
@@ -54,10 +39,10 @@ while @player_one_health > 0 && @player_two_health > 0 do
 
 
 
-  generate_question()
+  generate_question
   p ""
   p "Player Two"
-  if verify_answer()
+  if verify_answer
     p "Good Work!"
   else
     @player_two_health -= 1
